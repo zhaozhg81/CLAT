@@ -4,10 +4,12 @@
 \alias{caseIII}
 \title{This function runs the simulation and plots the figure for case III.}
 \usage{
-caseIII(beta)
+caseIII(beta, numSim = 1000)
 }
 \arguments{
 \item{beta}{The value of beta, which is between 0 and 1. In the paper, beta is chosen as 0.3 and 0.4 respectively.}
+
+\item{numSim}{The number of replications with a default choice of 1000.}
 }
 \description{
 This function runs the simulation and plots the figure for case III.

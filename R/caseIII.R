@@ -1,12 +1,12 @@
                                         #' This function runs the simulation and plots the figure for case III.
                                         #'
                                         #' @param beta The value of beta, which is between 0 and 1. In the paper, beta is chosen as 0.3 and 0.4 respectively.
+                                        #' @param numSim The number of replications with a default choice of 1000.
                                         #' @export
 
 
-caseIII <- function(beta)
+caseIII <- function(beta, numSim=1000)
   {
-    numSim <- 2
     
     n <- 5000
     l <- 1.2
