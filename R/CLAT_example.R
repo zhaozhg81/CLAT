@@ -4,7 +4,7 @@
                                         #' @param beta The value of beta, which is between 0 and 1. In the paper, beta is chosen as 0.3 and 0.4 respectively.
                                         #' @export
 
-CLAT.example <- function( case, beta )
+CLAT_example <- function( case, beta )
   {
     if(case =="I")
       caseI(beta)
