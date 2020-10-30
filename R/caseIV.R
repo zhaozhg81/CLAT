@@ -91,27 +91,17 @@ caseIV <- function(beta)
         ## ##########################################################
         ## ##########################################################
         ## ## CLAT 
+        pv <- 1 - pnorm( X )
+        CLATPos <- CLAT(pv, q)
         
-        ## # Positve side
-        if(p1!=1){
-          pv <- 1 - pnorm( X )
-          CLATPos <- CLAT(pv, q)
-          
-          pv.neg <- pnorm(X)
-          CLATNeg <- CLAT(pv.neg, q)
-          
-          R[l,k] <- CLATPos$R + CLATNeg$R   
-          SigInd = CLATPos$SigInd + CLATNeg$SigInd
-          FDP[l,k] <- sum(SigInd*(1-trueInd))/(R[l,k]+(R[l,k]==0))
-          FNP[l,k] <- sum((1-SigInd)*trueInd)/(n-R[l,k])
-        }
-        if(p1==1){
-          CLATres <- CLAT(X,q,'Normal')
-          R[l,k] <- CLATres$R
-          FDP[l,k] <- sum( CLATres$SigInd*(1-trueInd))/(R[l,k]+(R[l,k]==0))
-          FNP[l,k] <- sum((1-CLATres$SigInd)*trueInd)/(n-R[l,k])
-        }
+        pv.neg <- pnorm(X)
+        CLATNeg <- CLAT(pv.neg, q)
         
+        R[l,k] <- CLATPos$R + CLATNeg$R   
+        SigInd = CLATPos$SigInd + CLATNeg$SigInd
+        FDP[l,k] <- sum(SigInd*(1-trueInd))/(R[l,k]+(R[l,k]==0))
+        FNP[l,k] <- sum((1-SigInd)*trueInd)/(n-R[l,k])
+          
 
         ## ################################################################
         ## #########################################################
